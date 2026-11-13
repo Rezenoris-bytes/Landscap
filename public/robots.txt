@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://landscape-studio-22.preview.emergentagent.com/sitemap.xml
