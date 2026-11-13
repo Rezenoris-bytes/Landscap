@@ -128,7 +128,7 @@ export const ServicesBand = ({ title = "Seven ways to make a space green", intro
         <Head dark label="What we do" title={title} intro={intro} action={<Btn to="/services" variant="ghostLight" testId="services-band-all">All services</Btn>} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {list.map((s, i) => {
-            const Icon = SERVICE_ICONS[s.id];
+            const Icon = SERVICE_ICONS[s.id] || FallbackIcon;
             return (
             <Reveal key={s.id} delay={(i % 4) * 0.08}>
               <Link href={`/services/${s.id}`} data-testid={`service-card-${s.id}`} className="glass group flex h-full min-h-[270px] flex-col justify-between rounded-3xl p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-lime/60 hover:bg-white/15">

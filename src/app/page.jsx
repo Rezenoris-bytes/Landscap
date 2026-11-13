@@ -24,22 +24,32 @@ const Hero = () => (
     <div className="wrap grid items-end gap-10 pb-28 pt-[52svh] lg:pt-40 lg:grid-cols-[1.5fr_1fr] lg:pb-20">
       <div>
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="label label-dark">{SITE.tagline}</motion.p>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.45 }} className="mt-5 max-w-3xl font-display text-4xl font-light leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
-          Landscapes you see <span className="text-lime">before</span> we build them.
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.45 }} className="mt-5 max-w-3xl font-display text-4xl font-light leading-[1.04] tracking-tight sm:text-5xl lg:text-6xl">
+          Feel heaven in <span className="text-lime">every breath</span>.
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.65 }} className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-          Landscape design, build and irrigation for resorts, commercial spaces and homes in Tamil Nadu. One team from the first sketch to the last sprinkler. Fair price, never cheap work.
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }} className="mt-3 font-display text-xl font-normal text-white/90 sm:text-2xl">
+          Landscaping for resorts, commercial spaces and homes
         </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-9 flex flex-wrap gap-3">
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.65 }} className="mt-4 max-w-xl text-base text-white/80 md:text-lg">
+          We design, develop and maintain landscapes that look the way you planned and stay healthy for years. You see and approve the design before any work begins.
+        </motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85 }} className="mt-8 flex flex-wrap gap-3">
           <Btn to="/book" testId="hero-book-btn">Book a consultation</Btn>
-          <Btn to="/projects" variant="ghostLight" testId="hero-work-btn">See our work</Btn>
+          <Btn to="/projects" variant="ghostLight" testId="hero-work-btn">View our projects</Btn>
         </motion.div>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.95 }} className="mt-6 flex flex-wrap items-center gap-2 text-xs text-white/60">
+          <span>4+ years in landscaping</span>
+          <span className="text-lime">·</span>
+          <span>Resorts, offices and homes</span>
+          <span className="text-lime">·</span>
+          <span>Design, irrigation and maintenance by one team</span>
+        </motion.p>
       </div>
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="glass hidden justify-self-end rounded-3xl p-6 lg:block lg:w-80" data-testid="hero-stat-card">
-        <div className="flex items-center justify-between"><span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">Since day one</span><span className="rounded-full bg-lime px-2.5 py-0.5 font-mono text-[10px] text-forest">BHL</span></div>
-        <p className="mt-4 font-display text-5xl font-light">4+ <span className="text-2xl text-white/70">years</span></p>
-        <p className="mt-2 text-sm text-white/70">of designing, building and caring for green spaces.</p>
-        <div className="mt-5 flex flex-wrap gap-1.5">{["Design", "Build", "Irrigation"].map((t) => <span key={t} className="rounded-full border border-white/25 px-2.5 py-1 text-[11px]">{t}</span>)}</div>
+        <div className="flex items-center justify-between"><span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">Track record</span><span className="rounded-full bg-lime px-2.5 py-0.5 font-mono text-[10px] text-forest">BHL</span></div>
+        <p className="mt-4 font-display text-5xl font-light">30+ <span className="text-2xl text-white/70">projects</span></p>
+        <p className="mt-2 text-sm text-white/70">50,000+ sq ft across 5+ cities in Tamil Nadu and metro regions.</p>
+        <div className="mt-5 flex flex-wrap gap-1.5">{["Design", "Build", "Irrigation", "AMC"].map((t) => <span key={t} className="rounded-full border border-white/25 px-2.5 py-1 text-[11px]">{t}</span>)}</div>
       </motion.div>
     </div>
   </section>
@@ -93,8 +103,8 @@ const Intro = () => (
 
 export default function Home() {
   useSeo({
-    title: "Landscaping for resorts, offices and homes | Blue Heaven Landscape",
-    desc: "Blue Heaven designs, builds and cares for landscapes for resorts, commercial spaces and homes in Tamil Nadu. See the design first. Book a consultation.",
+    title: "Landscaping company in Tamil Nadu | Blue Heaven Landscape",
+    desc: "Landscape design, development, irrigation and maintenance for resorts, commercial properties and homes in Tamil Nadu. Book a consultation.",
     path: "/",
     ld: [faqLd(HOME_FAQ)],
   });

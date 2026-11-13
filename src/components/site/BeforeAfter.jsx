@@ -65,4 +65,9 @@ export default function BeforeAfter({ before, after, alt = "", className, testId
   );
 }
 
-export const sampleBA = (id) => ({ before: `/img/ba/${id}-before.webp`, after: `/img/ba/${id}-after.webp` });
+export const sampleBA = (id) => {
+  if (id === "landscape-maintenance") {
+    return { before: "/img/ba/lawn-before.webp", after: "/img/ba/lawn-after.webp" };
+  }
+  return { before: `/img/ba/${id}-before.webp`, after: `/img/ba/${id}-after.webp` };
+};

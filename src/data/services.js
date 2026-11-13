@@ -2,117 +2,356 @@ import { IMG } from "./site";
 
 export const SERVICES = [
   {
-    id: "lawn", name: "Lawn", short: "Soft, even grass that stays neat.", img: IMG.lawn,
-    h1: "Lawns that stay soft, even and green",
-    title: "Lawn installation in Tamil Nadu | Blue Heaven Landscape",
-    desc: "Lawns for resorts, offices and homes, laid on prepared soil with the right grass and planned irrigation. See the layout first. Book a consultation.",
-    tags: ["Event lawns", "Courtyards", "Villas"],
-    answer: "A Blue Heaven lawn is laid on prepared, levelled soil with grass chosen for your sun and use, finished with clean edges and watered by a planned irrigation system. We install lawns for resorts, commercial spaces and homes in Tamil Nadu, and show you the layout before we start.",
-    suits: ["Resort lawns and event spaces", "Office courtyards and campus grounds", "Clubhouses and apartment common areas", "Villa gardens and front yards"],
-    get: ["Soil checked, prepared and levelled", "Grass chosen for your sun, shade and use", "Clean edges and borders", "Irrigation planned with the lawn", "Care tips on handover day"],
-    steps: [["We check the site", "Sun, shade, soil, slope and how the lawn will be used."], ["We prepare the ground", "Clear, level and improve the soil so the grass can root well."], ["We lay the grass", "Laid evenly, with clean edges along paths and beds."], ["We water and hand over", "The lawn settles in, and you get simple care steps."]],
-    options: [["Mexican grass", "A fine, soft grass that suits most open, sunny lawns. [[Confirm grass types offered]]"], ["Lawn with turf edges", "Natural grass in the open, turf where shade or foot traffic is heavy."]],
-    cost: ["Lawn area", "Soil condition and levelling needed", "Grass type", "Irrigation needed"],
-    care: "Water early in the morning, mow often enough to keep it even, and feed it a few times a year. Most lawn problems start with too much or too little water.",
-    faq: [["How soon can we walk on a new lawn?", "It depends on the grass and the season. We tell you the exact day on handover, so the roots set properly first."], ["Which grass is right for my site?", "We decide after checking sun, shade and how the lawn will be used. A lawn for weddings needs different grass from a shady courtyard."], ["Does a lawn need a lot of water?", "A lawn needs regular water, but less when the soil is prepared well and the irrigation is set to water early in the day."]],
-    guide: "why-is-my-lawn-turning-yellow",
+    id: "vertical-garden",
+    name: "Vertical garden",
+    short: "Wall-mounted plant systems with built-in watering, for balconies, compound walls and building fronts.",
+    img: IMG.vertical,
+    h1: "Vertical garden services in Tamil Nadu",
+    title: "Vertical garden services in Tamil Nadu | Blue Heaven",
+    desc: "Vertical garden services in Tamil Nadu for balconies, compound walls and building fronts, with built-in irrigation. Book a consultation with BHL.",
+    tags: ["Balconies", "Compound walls", "Interiors", "Building fronts"],
+    answer: "A vertical garden is a system of plants fixed to a wall in panels or pots, with a built-in drip watering line. It adds greenery indoors or outdoors, where there is no floor space. BHL checks the wall, chooses plants for the light it receives, installs the frame and irrigation, and hands over with a care schedule.",
+    suits: [
+      "Balconies and small terraces",
+      "Compound and boundary walls",
+      "Indoor walls in homes, offices and receptions",
+      "Courtyards and corridors",
+      "Shop fronts and building fronts"
+    ],
+    get: [
+      "Wall check for strength, moisture and light",
+      "Frame and planter installation",
+      "Plant selection for the wall's light",
+      "Built-in drip irrigation",
+      "Care instructions at handover"
+    ],
+    steps: [
+      ["Wall check", "We check light, wall strength and where water will drain."],
+      ["Plant plan", "We choose plants and the planting pattern, and share it with you for approval."],
+      ["Installation", "We fix the frame, irrigation line and plants."],
+      ["Testing and handover", "We test the watering and show you what to check."]
+    ],
+    options: [
+      ["Outdoor vertical garden", "Hardy plants for sun and rain, for balconies, compound walls and building fronts."],
+      ["Indoor vertical garden", "Plants that grow well in low light, for living rooms, offices, receptions and corridors. Plant lights can be added where needed."]
+    ],
+    cost: ["Wall size", "Indoor or outdoor location", "Plant selection", "Type of frame and irrigation"],
+    care: "A vertical garden needs regular checks of its irrigation, light trimming to keep the shape, and replacement of any plant that struggles. Our AMC covers these checks.",
+    faq: [
+      ["Will a vertical garden damage my wall?", "No. The system is mounted with a small air gap behind the frame, and drainage is directed away from the wall."],
+      ["How much light does a vertical garden need?", "It depends on the plants. We select plants based on the sunlight your wall gets, from direct sun to deep shade."],
+      ["How is the vertical garden watered?", "A built-in drip irrigation system waters each plant at its roots, on a timer."],
+      ["What is the difference between a vertical garden and a living wall?", "A vertical garden is typically a modular or pot-based wall garden suited to residential balconies and smaller walls. A living wall is an engineered, continuous plant installation designed as a large-scale architectural feature for lobbies, receptions and facades."]
+    ],
+    guide: "living-wall-vs-vertical-garden"
   },
   {
-    id: "vertical-garden", name: "Vertical garden", short: "A green wall on a small footprint.", img: IMG.vertical,
-    h1: "Vertical gardens for walls with no room to spare",
-    title: "Vertical garden installation | Blue Heaven Landscape",
-    desc: "Vertical gardens for balconies, walls and building fronts, with built-in watering. Designed, installed and planted by Blue Heaven in Tamil Nadu.",
-    tags: ["Balconies", "Walls", "Small spaces"],
-    answer: "A vertical garden is a frame of real plants fixed to a wall, with watering built in. It brings green to places with no floor space: balconies, compound walls, small courtyards and building fronts. Blue Heaven designs, installs and plants it, and sets up the watering so it stays easy to look after.",
-    suits: ["Balconies and small terraces", "Compound and boundary walls", "Small courtyards", "Shop and building fronts"],
-    get: ["Wall checked for strength and water", "Frame and planters fixed safely", "Plants chosen for the light on that wall", "Built-in watering", "Care tips on handover day"],
-    steps: [["We check the wall", "Light, strength and where water will drain."], ["We plan the planting", "Plants and pattern that suit the light and the look you want."], ["We install and plant", "Frame, watering lines and plants, fixed neatly."], ["We test and hand over", "We run the watering and show you what to check."]],
-    options: [["Outdoor vertical garden", "Hardy plants for sun and rain."], ["Indoor vertical garden", "Plants that live with less light."]],
-    cost: ["Wall size", "Indoor or outdoor", "Plant choice", "Watering system"],
-    care: "Check the watering once a week, trim plants that grow out of shape, and replace any plant that struggles before it spreads to others.",
-    faq: [["Will a vertical garden damage my wall?", "Not when it is fixed and drained properly. We check the wall first and keep a gap so water does not sit against it."], ["How much light does it need?", "It depends on the plants. We choose plants for the light your wall gets, from full sun to shade."], ["What is the difference from a living wall?", "A vertical garden is smaller and simpler. A living wall is a large built-in feature, usually for lobbies and entrances."]],
-    guide: "living-wall-vs-vertical-garden",
+    id: "living-wall",
+    name: "Living wall",
+    short: "Large plant walls with built-in irrigation for hotel lobbies, office receptions and building entrances.",
+    img: IMG.lobbyWall,
+    h1: "Living walls for lobbies, receptions and entrances",
+    title: "Living walls in Tamil Nadu | Blue Heaven Landscape",
+    desc: "Living walls for hotel lobbies, office receptions and resort entrances in Tamil Nadu, with built-in irrigation. Book a consultation with BHL.",
+    tags: ["Lobbies", "Receptions", "Entrances", "Feature walls"],
+    answer: "A living wall is a large, engineered wall covered with real, growing plants, designed as an architectural feature for lobbies, receptions, restaurants and entrances. BHL designs each wall for the light in the space, installs the frame and drip watering, and offers maintenance so it stays green and healthy.",
+    suits: [
+      "Hotel and resort lobbies",
+      "Office and IT park receptions",
+      "Restaurant and cafe feature walls",
+      "Building entrances and facades"
+    ],
+    get: [
+      "Design created for your space and lighting",
+      "Engineered frame and waterproofing barrier",
+      "Plants chosen for the light, indoors or outdoors",
+      "Automated drip irrigation and drainage",
+      "Care plan and AMC options"
+    ],
+    steps: [
+      ["Space study", "We check the light, wall size, wall strength and how people will see the wall."],
+      ["Design presentation", "We present the plant pattern and how it will look, with up to three rounds of corrections."],
+      ["Installation", "We install the structure, irrigation, drainage and plants."],
+      ["Handover", "We test the system and agree a care plan with your team."]
+    ],
+    options: [
+      ["Indoor living wall", "For lobbies and receptions, with plants that suit indoor light. Plant lights can be added where needed."],
+      ["Outdoor living wall", "For entrances and facades, with plants suited to sun and rain."]
+    ],
+    cost: ["Wall size", "Indoor or outdoor location", "Plant mix and pattern", "Irrigation, drainage and lighting"],
+    care: "A living wall needs regular checks of its irrigation and trimming to keep the pattern neat. Our AMC covers these checks.",
+    faq: [
+      ["Does a living wall need sunlight?", "Outdoor walls use plants that like sun. Indoor walls use low-light plants, and plant lights can be added where natural light is limited."],
+      ["Will a living wall leak?", "It is built with drainage that keeps water away from the wall and floor."],
+      ["How long does a living wall last?", "With regular care, a living wall stays full for many years."],
+      ["Can you maintain it for us?", "Yes, through our 6-month or 12-month maintenance contract."]
+    ],
+    guide: "living-wall-vs-vertical-garden"
   },
   {
-    id: "living-wall", name: "Living wall", short: "Real plants for lobbies and entrances.", img: IMG.lobbyWall,
-    h1: "Living walls that greet people at the door",
-    title: "Living walls for lobbies and entrances | Blue Heaven Landscape",
-    desc: "Real plant walls for hotel lobbies, offices and resort entrances, with their own watering system. Designed and built by Blue Heaven in Tamil Nadu.",
-    tags: ["Lobbies", "Receptions", "Entrances"],
-    answer: "A living wall is a large wall covered in real, growing plants, built as a feature for hotel lobbies, offices, receptions and resort entrances. It is planned as part of the building's look, with its own watering system, so it stays full and green and makes a strong first impression.",
-    suits: ["Hotel and resort lobbies", "Office receptions", "Restaurant feature walls", "Building entrances"],
-    get: ["A design made for the space and the brand", "Structure fixed safely to the wall", "Plants chosen for the light, indoors or out", "Its own watering system", "A clear care plan"],
-    steps: [["We see the space", "Light, size, wall strength and how people will see it."], ["We show you the design", "Pattern, plants and how it will look on day one."], ["We build it", "Structure, watering and planting, with a tidy finish."], ["We hand over", "Watering tested and care steps agreed with your team."]],
-    options: [["Indoor living wall", "For lobbies and receptions, with plants that suit indoor light."], ["Outdoor living wall", "For entrances and facades, with hardy plants."]],
-    cost: ["Wall size", "Indoor or outdoor", "Plant mix and pattern", "Watering and drainage"],
-    care: "A living wall needs regular checks of its watering, plus trimming and the odd plant change. Care visits are available on request.",
-    faq: [["Do living walls need sunlight?", "Outdoor walls use sun-loving plants. Indoor walls use plants that live with less light, and sometimes extra plant lighting."], ["Will it leak?", "It is built with a watering and drainage system that keeps water away from the wall and the floor."], ["How long does it last?", "With regular care, a living wall keeps looking full for years. Single plants are replaced as needed."]],
-    guide: "living-wall-vs-vertical-garden",
+    id: "terrace-garden",
+    name: "Terrace garden",
+    short: "Rooftop gardens for homes, offices, hotels and restaurants, planned around roof load and drainage.",
+    img: IMG.terrace,
+    h1: "Terrace garden services in Tamil Nadu",
+    title: "Terrace garden services in Tamil Nadu | Blue Heaven",
+    desc: "Terrace garden services in Tamil Nadu for homes, offices, hotels and restaurants. Roof load and drainage checked before design. Book a consultation.",
+    tags: ["Rooftops", "Terraces", "Cafes", "Homes"],
+    answer: "A terrace garden is a garden built on a rooftop, using planters, raised beds, lawn or artificial turf, and an irrigation system. Before designing one, BHL checks how much weight the roof can carry, how water drains and the condition of the waterproofing. The design is then planned to suit the roof.",
+    suits: [
+      "Homes, villas and apartments",
+      "Office rooftops and break-out terraces",
+      "Hotel and resort rooftops",
+      "Rooftop restaurants and cafes"
+    ],
+    get: [
+      "Roof load, drainage and waterproofing check",
+      "Layout plan you approve first",
+      "Planters, soil mix and plants",
+      "Lawn or artificial turf where suitable",
+      "Drip irrigation system",
+      "Care schedule at handover"
+    ],
+    steps: [
+      ["Roof check", "We check the load capacity, drainage and waterproofing."],
+      ["Design presentation", "We show you where plants, turf, seating and paths go, with up to three rounds of corrections."],
+      ["Installation", "We place planters, soil mix, irrigation and plants."],
+      ["Handover", "We test the watering and explain the care schedule."]
+    ],
+    options: [
+      ["Light terrace garden", "Pots, planters and artificial turf for roofs with lower load capacity."],
+      ["Full terrace garden", "Raised beds, lawn, seating and larger plants where the roof structure allows it."]
+    ],
+    cost: ["Terrace size", "Roof load capacity", "Planters and materials", "Plants and irrigation"],
+    care: "Keep drains clear of fallen leaves, check the irrigation weekly and protect plants during peak summer heat. Our AMC covers terrace garden care.",
+    faq: [
+      ["Is a terrace garden safe for my roof?", "Yes, when roof load, drainage and waterproofing are checked first. We verify all three before designing."],
+      ["Will a terrace garden cause water leaks?", "No, as long as waterproofing is intact and drainage is not blocked. We inspect the roof surface before installation."],
+      ["Can I grow lawn grass on a terrace?", "Yes, if the roof can take the weight of soil and water. Where load is limited, artificial turf is a lightweight alternative."]
+    ],
+    guide: "terrace-garden-roof-safety"
   },
   {
-    id: "terrace-garden", name: "Terrace garden", short: "Rooftops and balconies turned green.", img: IMG.terrace,
-    h1: "Terrace gardens, planned around your roof",
-    title: "Terrace garden design in Tamil Nadu | Blue Heaven Landscape",
-    desc: "Turn your rooftop into a green space you can use. We check your roof first, then design and build a terrace garden that suits it.",
-    tags: ["Rooftops", "Cafes", "Homes"],
-    answer: "A terrace garden turns a rooftop into a green space you can use. Before we plan anything, we check that your roof can take the weight and that water drains away. Then we design and build planters, lawn or turf and seating areas that suit your roof and the way you want to use it.",
-    suits: ["Rooftop restaurants and cafes", "Resort and hotel terraces", "Office rooftops", "Homes and apartments"],
-    get: ["Roof checked for weight and drainage", "A layout you approve first", "Planters, lawn or turf and plants", "Watering planned for the roof", "Care tips on handover day"],
-    steps: [["We check the roof", "Weight it can carry, drainage and waterproofing."], ["We show you the layout", "Where the green goes and where people sit and walk."], ["We build", "Planters, soil, plants, turf or lawn, and watering."], ["We hand over", "Tested watering and simple care steps."]],
-    options: [["Light terrace garden", "Pots, planters and turf for roofs that cannot carry much weight."], ["Full terrace garden", "Raised beds, lawn and larger plants where the roof allows it."]],
-    cost: ["Terrace size", "What the roof can carry", "Planters and materials", "Plants and watering"],
-    care: "Keep drains clear, water early in the day, and check planters after heavy rain.",
-    faq: [["Is a terrace garden safe for my roof?", "Yes, when the weight, drainage and waterproofing are checked first. We do this before we plan anything."], ["Will it cause leaks?", "Not when drainage and waterproofing are right. We check these first and plan the garden around them."], ["Can I have grass on my terrace?", "Yes. We use natural grass or turf, depending on the weight, sun and care you want."]],
-    guide: "terrace-garden-roof-safety",
+    id: "lawn",
+    name: "Lawn",
+    short: "Natural grass lawns for resorts, commercial properties and homes, laid on properly prepared soil.",
+    img: IMG.lawn,
+    h1: "Lawn services in Tamil Nadu",
+    title: "Lawn services in Tamil Nadu | Blue Heaven Landscape",
+    desc: "Lawn services in Tamil Nadu for resorts, offices and homes, with soil preparation, grass selection and irrigation. Book a consultation with BHL.",
+    tags: ["Event lawns", "Campuses", "Courtyards", "Villas"],
+    answer: "A lawn service by BHL includes a soil and site check, soil preparation and levelling, choosing the right grass for your sunlight and use, laying the grass, edging and installing irrigation. We develop lawns for event spaces, campuses, courtyards and home gardens across Tamil Nadu, with maintenance contracts available after handover.",
+    suits: [
+      "Resort lawns and outdoor event spaces",
+      "Office courtyards and campus grounds",
+      "Clubhouses and apartment common areas",
+      "Home and villa gardens"
+    ],
+    get: [
+      "Soil checked, prepared and levelled",
+      "Grass selected for your sunlight, shade and use",
+      "Clean edging along paths and beds",
+      "Irrigation planned with the lawn",
+      "Care instructions at handover"
+    ],
+    steps: [
+      ["Site study", "We check sunlight, shade, soil, slope and how the lawn will be used."],
+      ["Ground preparation", "We clear, level and enrich the soil so the grass roots well."],
+      ["Laying the grass", "We lay the grass evenly, with clean edges along paths and beds."],
+      ["Watering and handover", "We set the irrigation and give you a care schedule."]
+    ],
+    options: [
+      ["Mexican grass", "A fine-textured grass that suits sunny lawns and gardens."],
+      ["Bermuda grass", "A hardy grass that handles heavy foot traffic, good for event spaces and sports areas."],
+      ["Shade-tolerant grass", "For courtyards and areas with partial tree shade."]
+    ],
+    cost: ["Lawn area", "Soil preparation and levelling needed", "Grass type", "Irrigation system"],
+    care: "A new lawn needs regular watering in the first few weeks while the roots settle. After that, water early in the morning, mow regularly and feed the lawn every few months. Most lawn problems come from too much or too little water. Our AMC covers mowing, feeding, pest checks and irrigation checks.",
+    faq: [
+      ["How long does a lawn take to develop?", "It depends on the size and scope of your project. You receive a clear timeline with the quotation."],
+      ["When can we walk on a new lawn?", "After the roots settle. We confirm the exact time at handover."],
+      ["Which grass is best for my site?", "It depends on sunlight, shade and use. We recommend the grass after the site visit."],
+      ["How often should a lawn be watered?", "It depends on the season and soil. Watering early in the morning reduces water loss."],
+      ["Why do lawns turn yellow?", "The most common causes are overwatering, underwatering, poor soil and too much shade. Read our guide on yellow lawns."]
+    ],
+    guide: "why-is-my-lawn-turning-yellow"
   },
   {
-    id: "artificial-turf", name: "Artificial turf", short: "Green all year, with little care.", img: IMG.poolTurf,
-    h1: "Artificial turf that stays green all year",
-    title: "Artificial turf installation | Blue Heaven Landscape",
-    desc: "Artificial turf for pool decks, play areas, rooftops and shaded spots. Green all year with little water and no mowing. Book a consultation.",
-    tags: ["Pool decks", "Play areas", "Shade"],
-    answer: "Artificial turf is a grass surface made from synthetic fibres. It stays green all year with no mowing and very little water. It suits pool decks, play areas, rooftops and shady spots where natural grass struggles. Blue Heaven lays it on a prepared, well-drained base so it stays flat and neat.",
-    suits: ["Pool decks", "Play areas and schools", "Rooftops and terraces", "Shady corners where grass will not grow"],
-    get: ["Base prepared and levelled", "Drainage so water does not sit", "Turf chosen for use and feel", "Joins and edges finished cleanly", "Care tips on handover day"],
-    steps: [["We check the area", "Use, sun, drainage and the surface underneath."], ["We prepare the base", "Levelled and compacted so the turf stays flat."], ["We lay the turf", "Joined and edged neatly."], ["We hand over", "A final brush and simple care steps."]],
-    options: [["Landscape turf", "Soft, natural-looking turf for gardens and pool decks."], ["Play turf", "Hard-wearing turf for play areas. [[Confirm turf types offered]]"]],
-    cost: ["Area", "Base work needed", "Turf type", "Edges and drainage"],
-    care: "Brush it now and then, rinse off dust, and clear leaves. No mowing and no fertiliser.",
-    faq: [["Does artificial turf get hot?", "It can get warm in full sun. In very hot spots we suggest shade or natural grass instead."], ["Is it good for a pool deck?", "Yes, it drains fast and stays green. We explain the trade-offs in our pool deck guide."], ["How long does it last?", "Good turf lasts many years with light care. Heavy use wears it faster."]],
-    guide: "grass-or-turf-pool-deck",
+    id: "artificial-turf",
+    name: "Artificial turf",
+    short: "Synthetic grass for pool decks, play areas, rooftops and shaded areas where natural grass struggles.",
+    img: IMG.poolTurf,
+    h1: "Artificial turf services in Tamil Nadu",
+    title: "Artificial turf services in Tamil Nadu | Blue Heaven",
+    desc: "Artificial turf services in Tamil Nadu for pool decks, play areas, rooftops and shaded areas. Low water use and no mowing. Book a consultation.",
+    tags: ["Pool decks", "Play areas", "Rooftops", "Shaded spots"],
+    answer: "Artificial turf is a synthetic grass surface that stays green all year without mowing and with very little water. It suits pool decks, play areas, rooftops and shaded spots. BHL prepares and levels the base, adds drainage, and lays and joins the turf for a flat, clean finish.",
+    suits: [
+      "Pool decks",
+      "Play areas and schools",
+      "Rooftops and terraces",
+      "Shaded areas and courtyards"
+    ],
+    get: [
+      "Site check and base preparation",
+      "Levelling and compaction",
+      "Drainage layer",
+      "Turf chosen for use and foot feel",
+      "Clean joins and edges",
+      "Care instructions at handover"
+    ],
+    steps: [
+      ["Site study", "We check use, sun, drainage and the sub-base."],
+      ["Base preparation", "We level and compact the base so the turf stays flat."],
+      ["Laying the turf", "We lay, join and edge the turf neatly."],
+      ["Handover", "A final brush and simple care instructions."]
+    ],
+    options: [
+      ["Landscape turf", "Natural-looking turf with varied pile heights for gardens, rooftops and pool surrounds."],
+      ["Play turf", "High-density, durable turf for play areas and schools."]
+    ],
+    cost: ["Area", "Base preparation needed", "Turf pile height and density", "Drainage and edging"],
+    care: "Brush occasionally to keep the pile upright, rinse off dust and remove fallen leaves. No mowing, no fertilising and no regular watering required.",
+    faq: [
+      ["Does artificial turf get hot in summer?", "Yes, in direct sun during peak hours. In high-heat areas, we suggest shade structures, surrounding planting, or natural grass."],
+      ["Can artificial turf be used around swimming pools?", "Yes. It drains fast, does not become muddy and does not drop grass clippings into the pool filter."],
+      ["How long does artificial turf last?", "High-quality turf lasts 7 to 10 years with basic maintenance."]
+    ],
+    guide: "grass-or-turf-pool-deck"
   },
   {
-    id: "rock-garden", name: "Rock garden", short: "Stone and plants that need less water.", img: IMG.rock,
-    h1: "Rock gardens with a natural look and low water use",
-    title: "Rock garden design in Tamil Nadu | Blue Heaven Landscape",
-    desc: "Rock gardens with stone, pebbles and hardy plants for slopes, dry corners and entrances. A natural look that needs little water.",
-    tags: ["Slopes", "Low water", "Pathways"],
-    answer: "A rock garden uses stones, pebbles and hardy plants to create a natural-looking landscape that needs little water. It suits slopes, dry corners, entrances and spaces where a lawn would need too much care. Blue Heaven designs the layout, sources the stone and builds it to last.",
-    suits: ["Slopes and uneven ground", "Dry corners and entrances", "Resort pathways", "Low-care home gardens"],
-    get: ["A layout you approve first", "Stone and pebbles sourced for the look", "Hardy plants that need little water", "Weed control under the stones", "Care tips on handover day"],
-    steps: [["We check the space", "Slope, sun, drainage and the look you want."], ["We show you the design", "Where stones, plants and paths go."], ["We build", "Base, weed control, stones and planting."], ["We hand over", "Simple care steps for the plants."]],
-    options: [["Natural rock garden", "Larger stones and hardy plants for a wild look."], ["Pebble garden", "Neat pebble beds with a few feature plants."]],
-    cost: ["Area", "Stone type and size", "Plants", "Base and weed control"],
-    care: "Pull any weeds early, water the plants in dry months, and top up pebbles once in a while.",
-    faq: [["Does a rock garden need water?", "Only the plants do, and we choose hardy plants that need little water."], ["Will weeds grow through?", "We lay weed control under the stones, so very few weeds come through."], ["Can it go on a slope?", "Yes. Rock gardens work well on slopes and help hold the soil."]],
-    guide: "resort-landscaping-plan",
+    id: "rock-garden",
+    name: "Rock garden",
+    short: "Stone, pebble and hardy plant landscapes for slopes, entrances and dry zones that need little water.",
+    img: IMG.rock,
+    h1: "Rock garden services in Tamil Nadu",
+    title: "Rock garden services in Tamil Nadu | Blue Heaven",
+    desc: "Rock garden services in Tamil Nadu with stone, pebbles and drought-tolerant plants. Low water use and a natural look. Book a consultation with BHL.",
+    tags: ["Slopes", "Entrances", "Pathways", "Low water"],
+    answer: "A rock garden combines natural stone, pebbles, gravel and drought-tolerant plants to create a low-water, natural-looking landscape. It suits slopes, dry areas, entrances and spaces where a lawn is difficult to maintain. BHL designs the layout, sources stone and plants, and installs weed control beneath the stones.",
+    suits: [
+      "Slopes and uneven ground",
+      "Dry corners and entrances",
+      "Resort pathways and median strips",
+      "Low-maintenance home gardens"
+    ],
+    get: [
+      "Design layout you approve first",
+      "Stone, boulders and pebbles sourced for your look",
+      "Drought-tolerant plants suited to the stone layout",
+      "Weed control membrane under the stones",
+      "Drip irrigation for the plants",
+      "Care instructions at handover"
+    ],
+    steps: [
+      ["Site study", "We check slope, sunlight, drainage and the style you want."],
+      ["Design presentation", "We show where boulders, pebbles, plants and pathways go."],
+      ["Installation", "We prepare the base, lay weed barrier, place stones and plant."],
+      ["Handover", "We test the irrigation and explain care steps."]
+    ],
+    options: [
+      ["Natural boulder garden", "Larger rocks and hardy plants for slopes and natural landscapes."],
+      ["Pebble and gravel garden", "Neat pebble beds with accent plants, suited to courtyards and entrances."],
+      ["Dry creek bed", "A river-rock feature that doubles as surface drainage during heavy rain."]
+    ],
+    cost: ["Area", "Stone type, size and quantity", "Plant selection", "Base preparation and weed barrier"],
+    care: "Remove weeds promptly, rinse dust off pebbles occasionally, and check drip lines for the plants. Rock gardens need very little regular maintenance.",
+    faq: [
+      ["Does a rock garden need watering?", "Only the plants need water, and we select drought-hardy species. Drip irrigation keeps water use minimal."],
+      ["Will weeds grow through the stones?", "We lay a geotextile weed barrier under the stone layer, which stops almost all weed growth."],
+      ["Can a rock garden be built on a steep slope?", "Yes. In fact, rock gardens are one of the most effective ways to stabilise sloped soil and prevent erosion."]
+    ],
+    guide: "resort-landscaping-plan"
   },
   {
-    id: "irrigation", name: "Irrigation", short: "Water that reaches every root, on a timer.", img: IMG.irrigation,
-    h1: "Irrigation that waters the landscape for you",
-    title: "Irrigation systems for gardens and lawns | Blue Heaven Landscape",
-    desc: "Irrigation for resorts, commercial spaces and homes in Tamil Nadu, planned with your landscape so every plant gets the right water. Book a consultation.",
-    tags: ["Every zone", "On timers", "Less waste"],
-    answer: "Irrigation is the system that waters your landscape for you. Blue Heaven designs and installs it together with the landscape, so every lawn, bed and planter gets the right amount of water at the right time, with less waste and no one running hoses.",
-    suits: ["Large resort grounds", "Office and campus lawns", "Terrace gardens", "Home gardens"],
-    get: ["A watering plan for every zone", "Drip lines for beds, hedges and pots", "Sprinklers for lawns", "Timers so watering happens early", "A system test on handover day"],
-    steps: [["We map the zones", "Lawns, beds, pots and how much water each needs."], ["We plan the system", "Pipes, drips, sprinklers and timers on one plan."], ["We install", "Laid neatly, mostly out of sight."], ["We test and hand over", "Every zone run and checked with you."]],
-    options: [["Drip irrigation", "Water straight to the roots of beds, hedges and pots."], ["Sprinkler irrigation", "Even cover for lawns and open grass."]],
-    cost: ["Area and number of zones", "Drip, sprinklers or both", "Timers and controls", "Water source"],
-    care: "Check sprinklers and drippers once a month for blocks, and change timer settings when the season changes.",
-    faq: [["Do I need drip or sprinklers?", "Drip suits beds, hedges and pots. Sprinklers suit lawns. Most properties need both."], ["Can you add irrigation to an existing garden?", "Yes. We plan it around what is already there."], ["Will it save water?", "Yes. Watering early, by zone and at the roots wastes much less than hand watering."]],
-    guide: "drip-or-sprinkler",
+    id: "irrigation",
+    name: "Irrigation",
+    short: "Drip irrigation systems for planting beds, hedges, planters, terraces and green walls, designed with your landscape.",
+    img: IMG.irrigation,
+    h1: "Irrigation services in Tamil Nadu",
+    title: "Irrigation services in Tamil Nadu | Blue Heaven Landscape",
+    desc: "Irrigation services in Tamil Nadu for resorts, commercial properties and homes, planned with your landscape. Book a consultation with BHL.",
+    tags: ["Every zone", "Water saving", "Automated timers", "Beds & planters"],
+    answer: "Drip irrigation is a system of pipes and small emitters that delivers water slowly and directly to plant roots. BHL designs and installs drip irrigation zone by zone with the landscape, so every bed, hedge, planter and green wall gets the right amount of water, with less waste and less manual work.",
+    suits: [
+      "Large resort and campus grounds",
+      "Planting beds and hedges",
+      "Terrace gardens and planters",
+      "Vertical gardens and living walls",
+      "Home gardens"
+    ],
+    get: [
+      "Zone-wise watering plan",
+      "Drip lines and emitters for beds, hedges and planters",
+      "Filter to protect the emitters",
+      "System testing at handover",
+      "Care instructions at handover"
+    ],
+    steps: [
+      ["Zone mapping", "We map beds, planters and lawns and the water each one needs."],
+      ["System design", "We plan the pipes, drip lines and emitters for each zone."],
+      ["Installation", "We install the system with most lines out of sight."],
+      ["Testing and handover", "We run every zone with you and show you how to use the timer."]
+    ],
+    options: [
+      ["Drip for beds and hedges", "Drip lines laid along planting beds and hedges."],
+      ["Drip for planters, terraces and green walls", "Small emitters for pots, terrace planters, vertical gardens and living walls."]
+    ],
+    cost: ["Area and number of zones", "Length of drip lines and number of emitters", "Filters and fittings", "Water source and pressure"],
+    care: "Check drip emitters monthly for blocks, clean the filter regularly and adjust watering when the season changes. Our AMC covers irrigation checks and minor repairs.",
+    faq: [
+      ["Why choose drip irrigation?", "Drip puts water directly at the roots, so very little is lost to evaporation or runoff. It also keeps paths dry and reduces weeds."],
+      ["Can you add irrigation to an existing garden?", "Yes. We plan the system around the plants and paths that are already there."],
+      ["Does drip irrigation save water?", "Yes. Watering by zone and at the roots uses less water than hand watering."],
+      ["What if my water supply is limited?", "Drip irrigation is one of the best options for limited water, because it uses water efficiently."]
+    ],
+    guide: "drip-or-sprinkler"
   },
+  {
+    id: "landscape-maintenance",
+    name: "Annual maintenance (AMC)",
+    short: "Scheduled care visits that keep your lawns, plants, walls and irrigation in good condition. 6-month and 12-month contracts.",
+    img: IMG.gardener,
+    h1: "Landscape maintenance (AMC) services in Tamil Nadu",
+    title: "Landscape maintenance (AMC) in Tamil Nadu | Blue Heaven",
+    desc: "6-month and 12-month landscape maintenance contracts for resorts, commercial properties and homes in Tamil Nadu. Book a consultation.",
+    tags: ["Scheduled visits", "6 & 12 months", "Soil & lawn care", "Irrigation checks"],
+    answer: "A landscape annual maintenance contract (AMC) is an agreement for regular care of your landscape over 6 or 12 months. BHL's AMC includes scheduled visits for mowing, trimming, fertilising, pest and disease checks and irrigation checks. Visits follow the schedule committed in your contract.",
+    suits: [
+      "Resorts and hotels",
+      "Offices, IT parks and commercial buildings",
+      "Apartments and gated communities",
+      "Villas, independent houses and terrace gardens"
+    ],
+    get: [
+      "Lawn mowing and edging",
+      "Hedge and shrub trimming",
+      "Fertilising and soil care",
+      "Pest and disease checks and treatment",
+      "Weeding of beds and pebble areas",
+      "Irrigation checks, cleaning and minor repairs",
+      "Living wall and vertical garden checks"
+    ],
+    steps: [
+      ["Property inspection", "We inspect your landscape, understand its current condition and determine visit frequency."],
+      ["Contract agreement", "We agree on a 6-month or 12-month contract with a fixed schedule of visits."],
+      ["Scheduled care visits", "Our trained team visits as scheduled to mow, trim, feed, treat pests and check irrigation."],
+      ["Quick support", "If anything needs attention between visits, we respond as soon as possible, within 24 hours."]
+    ],
+    options: [
+      ["6-month AMC", "Ideal for seasonal properties or initial care after new landscape installation."],
+      ["12-month AMC", "Comprehensive year-round landscape care covering all seasons."]
+    ],
+    cost: ["Property area and number of zones", "Types of elements (lawns, living walls, terrace gardens, beds)", "Visit frequency", "Condition of the existing landscape"],
+    care: "Visits follow the schedule committed in your contract. If any plant needs replacement, we share the details and cost with you first. We promise to source the best plants for your place.",
+    faq: [
+      ["How often do you visit?", "Visit frequency is fixed in your contract, based on the size and needs of your property."],
+      ["How long is an AMC?", "We offer 6-month and 12-month contracts."],
+      ["Can I start an AMC for a landscape you did not build?", "Yes, subject to our terms and conditions. We first inspect the landscape to understand its condition."],
+      ["What happens if something needs repair between visits?", "Call or WhatsApp us. We respond as soon as possible, within 24 hours."]
+    ],
+    guide: "how-we-work"
+  }
 ];
 
 export const svcById = Object.fromEntries(SERVICES.map((s) => [s.id, s]));

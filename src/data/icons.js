@@ -1,5 +1,5 @@
 import {
-  BadgeCheck, Building2, Droplets, Eye, Flower2, Grid3x3, Hotel, House, LandPlot, Mountain, ShieldCheck, Sparkles, Sprout, Trees,
+  BadgeCheck, Building2, CalendarCheck, Droplets, Eye, Flower2, Grid3x3, Hotel, House, LandPlot, Mountain, ShieldCheck, Sparkles, Sprout, Trees,
 } from "lucide-react";
 
 export const SERVICE_ICONS = {
@@ -10,6 +10,7 @@ export const SERVICE_ICONS = {
   "artificial-turf": LandPlot,
   "rock-garden": Mountain,
   irrigation: Droplets,
+  "landscape-maintenance": CalendarCheck,
 };
 
 export const WHO_ICONS = { "/resorts": Hotel, "/commercial": Building2, "/homes": House };

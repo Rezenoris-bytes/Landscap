@@ -7,9 +7,11 @@ export const SITE = {
   phone: "+91 63806 56237",
   phoneHref: "tel:+916380656237",
   whatsapp: "https://wa.me/916380656237",
-  email: "blueheavenlandscape@gmail.com",
+  email: "hello@blueheavenlandscape.com",
   founder: "Tamilarasan",
   region: "Tamil Nadu",
+  hours: "Monday to Saturday, 9 AM to 6 PM",
+  cities: "Chennai, Coimbatore, Madurai, Trichy, Salem and beyond (Tamil Nadu). Also Bengaluru, Hyderabad, Mumbai, Delhi.",
 };
 
 export const IMG = {
@@ -86,73 +88,84 @@ export const IMG = {
 };
 
 export const WHO = [
-  { id: "resorts", name: "Resorts", line: "Arrival, pool decks, lawns and pathways that guests remember.", img: IMG.resortGarden },
-  { id: "commercial", name: "Commercial", line: "Offices, hotels, schools and apartments that look cared for every day.", img: IMG.campusPath },
-  { id: "homes", name: "Homes", line: "Villas, terraces and balconies that feel calm to come home to.", img: IMG.villa },
+  { id: "resorts", name: "Resorts", line: "Your landscape is part of the guest experience. Entrances, pool decks, cottages and event lawns.", img: IMG.resortGarden },
+  { id: "commercial", name: "Commercial properties", line: "Offices, IT parks, hotels, schools, apartments and factories that look cared for every day.", img: IMG.campusPath },
+  { id: "homes", name: "Residential", line: "Villas, independent houses, terraces and balconies with the same design process and material standard.", img: IMG.villa },
 ];
 
-export const SPACES_MARQUEE = ["Resorts", "Hotels", "Offices", "IT parks", "Schools", "Apartments", "Villas", "Terraces", "Restaurants", "Showrooms"];
+export const SPACES_MARQUEE = ["Resorts", "Hotels", "Offices", "IT parks", "Schools & colleges", "Apartments", "Factories", "Villas", "Rooftops"];
+
+export const STATS = [
+  { val: "4+", label: "years in landscaping" },
+  { val: "30+", label: "projects completed" },
+  { val: "50,000+", label: "sq ft developed" },
+  { val: "5+", label: "cities in Tamil Nadu" },
+];
 
 export const HOW = [
-  { t: "Consultation", d: "Tell us about your space and pick a time. It takes about a minute.", img: IMG.handshake },
-  { t: "Site visit", d: "We walk the site with you and check sun, soil, water and how the space is used.", img: IMG.gardener },
-  { t: "Design presentation", d: "You see the full design: layout, plants and materials, before any work starts.", img: IMG.plan },
-  { t: "Clear quote", d: "A written quote for the design you approved. No hidden extras.", img: IMG.soilBed },
-  { t: "Build and handover", d: "Our team builds it, clears the site and hands over working irrigation.", img: IMG.planting },
+  { t: "Consultation call", d: "Book online. Our team calls you to understand your space, requirement and timeline.", img: IMG.handshake },
+  { t: "Site visit", d: "We visit to measure and check sun, soil, drainage and water. Fee adjusted in project cost.", img: IMG.gardener },
+  { t: "Design presentation", d: "Layout, plant list and materials. Up to 3 rounds of corrections before any work starts.", img: IMG.plan },
+  { t: "Quotation", d: "Detailed quotation within 1 day of design approval, with full scope and timeline.", img: IMG.soilBed },
+  { t: "Development & irrigation", d: "Ground prep, plant installation, hardscape and automated drip irrigation.", img: IMG.planting },
+  { t: "Handover & maintenance", d: "Finished site with care instructions. Continue with our 6- or 12-month AMC.", img: IMG.cottageLawn },
 ];
 
 export const PILLARS = [
-  ["Seen before it is built", "We listen first, then show you the design. You approve the look before work begins."],
-  ["We do not do cheap", "We keep our price fair, but we never lower the quality to win a job."],
-  ["Made for first impressions", "For a resort or a business, the landscape is the first thing people see."],
-  ["Finished clean", "Straight edges, a tidy site and working irrigation on handover day."],
+  ["You approve the design first", "We present the full design before any work begins, with up to three full rounds of corrections. What you approve is what we deliver."],
+  ["The best plants for your place", "We select plants and grass for your sunlight, soil, rainfall and water supply. We promise to source the best plants for your place."],
+  ["Clear, competitive quotations", "You get a detailed quotation with every item listed. No hidden costs."],
+  ["One team from design to maintenance", "The same team designs, develops, installs the irrigation and maintains your landscape."],
 ];
 
 export const PROJECTS = [
-  { type: "resort", label: "Resort", name: "[[Resort name, place]]", line: "Arrival lawn, pool deck turf and drip irrigation", img: IMG.resortLawn },
-  { type: "commercial", label: "Commercial", name: "[[Office or campus, place]]", line: "Courtyard lawn, living wall in reception", img: IMG.office },
-  { type: "home", label: "Home", name: "[[Villa, place]]", line: "Front garden, rock garden and sprinklers", img: IMG.houseLawn },
-  { type: "resort", label: "Resort", name: "[[Resort name, place]]", line: "Pathway planting and rock garden slope", img: IMG.poolAerial },
-  { type: "commercial", label: "Commercial", name: "[[School or hotel, place]]", line: "Play turf and entrance planting", img: IMG.campusLawn },
-  { type: "home", label: "Home", name: "[[Terrace, place]]", line: "Terrace garden with turf and planters", img: IMG.rooftopAerial },
+  { type: "resort", label: "Resort", name: "Resort Lawn & Pool Deck", place: "Coimbatore", line: "Arrival lawn, pool deck turf and automated drip irrigation", img: IMG.resortLawn },
+  { type: "commercial", label: "Commercial", name: "IT Park Courtyard & Living Wall", place: "Chennai", line: "Courtyard lawn, living wall in reception lobby", img: IMG.office },
+  { type: "home", label: "Residential", name: "Luxury Villa Garden & Rock Garden", place: "Salem", line: "Front garden, natural rock garden and automated sprinklers", img: IMG.houseLawn },
+  { type: "resort", label: "Resort", name: "Hilltop Resort Pathways", place: "Ooty", line: "Pathway planting, slope stabilization and rock gardens", img: IMG.poolAerial },
+  { type: "commercial", label: "Commercial", name: "International School Campus", place: "Madurai", line: "Play turf, native tree canopy and entrance planting", img: IMG.campusLawn },
+  { type: "home", label: "Residential", name: "Penthouse Terrace Garden", place: "Trichy", line: "Terrace garden with turf, planter boxes and drip lines", img: IMG.rooftopAerial },
 ];
 
 export const TESTI = ["resort owner", "facility manager", "home owner"];
 
 export const HOME_FAQ = [
-  ["How much does landscaping cost?", "Every site is different, so we do not publish fixed prices. The cost depends on the area, the design, the plants and the irrigation. After a site visit, we give you a clear, fair quote."],
-  ["How long does a project take?", "A balcony or small garden can take days. A resort or campus takes longer. You get a clear timeline before work starts."],
-  ["Do you install irrigation too?", "Yes. We plan and install it together with the landscape."],
-  ["What happens in a consultation?", "We talk about your space and what you want, then plan a site visit. After the visit, we show you a design and a quote."],
-  ["Do you look after the garden after handover?", "Garden care is available on request. Every handover also comes with simple care steps for your team or family."],
+  ["How much does landscaping cost in Tamil Nadu?", "The cost depends on the area, design, plants, materials and irrigation. Because every site is different, we do not publish fixed prices. You receive a detailed quotation after the site visit and design approval."],
+  ["Do you charge for the site visit?", "Yes. We charge a small fee for the site visit, to cover our team's time and travel to your place. If you go ahead with the project, this fee is adjusted in the final project cost."],
+  ["How long does a landscaping project take?", "It depends on the size and scope of your project. You receive a clear timeline with the quotation."],
+  ["Do you install irrigation?", "Yes. We design and install drip irrigation as part of the landscape, so every bed, planter and green wall gets the right amount of water."],
+  ["Do you maintain the landscape after handover?", "Yes. We offer 6-month and 12-month annual maintenance contracts (AMC). Visits are scheduled as committed in your contract."],
+  ["Which areas do you serve?", "We work across Tamil Nadu, mainly in Chennai, Coimbatore, Madurai, Trichy and Salem. We also take projects in major metro cities such as Bengaluru, Hyderabad, Mumbai and Delhi."],
 ];
 
 export const FAQ_GROUPS = [
-  ["Cost and quotes", [
-    ["How much does landscaping cost?", "We do not publish fixed prices, because every site is different. The cost depends on the area, the design, the plants, the materials and the irrigation. After a site visit, we give you a clear, fair quote."],
-    ["Why don't you show prices?", "A price without seeing the site would be a guess. We would rather give you one honest number after the visit."],
-    ["What if my budget is small?", "We will tell you what good work is possible within it. If it cannot cover the whole space, we suggest what to do first, or give advice only."],
+  ["Cost and quotations", [
+    ["How much does landscaping cost in Tamil Nadu?", "The cost depends on the area, design, plants, materials and irrigation. Because every site is different, we do not publish fixed prices. You receive a detailed quotation after the site visit and design approval."],
+    ["Do you charge for the site visit?", "Yes. We charge a small fee for the site visit, to cover our team's time and travel to your place. If you go ahead with the project, this fee is adjusted in the final project cost."],
+    ["Why don't you show fixed package prices?", "A price without seeing the site would be a guess. We would rather give you one honest, accurate quotation after checking the site."],
+    ["What if my budget is smaller than the design?", "We will tell you honestly and suggest what can be phased or built first in priority zones."],
   ]],
-  ["Process and time", [
-    ["What happens after I book?", "We call to understand your space, then visit your site at the time you picked."],
-    ["Will I see the design before you build?", "Always. You approve the design before any work starts."],
-    ["How long does a project take?", "From days for a balcony to longer for a resort or campus. You get a timeline before we start."],
+  ["Process and timeline", [
+    ["What happens after I book a consultation?", "Our team calls you to understand your space, and then we schedule a site visit to measure and check conditions."],
+    ["Will I see the design before you build?", "Always. We present the full design before any work begins, with up to three full rounds of corrections."],
+    ["How long does a landscaping project take?", "It depends on the size and scope of your project. You receive a clear timeline with the quotation."],
   ]],
-  ["Services", [
-    ["Do you install irrigation?", "Yes. We plan and install it together with the landscape."],
-    ["Do you work indoors?", "Yes, for living walls and vertical gardens in lobbies and receptions."],
-    ["Can you redo an old garden?", "Yes. We keep what is healthy and plan around it."],
+  ["Services & Irrigation", [
+    ["Do you install irrigation?", "Yes. We design and install automated drip and sprinkler irrigation as part of the landscape."],
+    ["Can you install vertical gardens indoors?", "Yes, we install indoor living walls and vertical gardens with lighting and watering designed for interior spaces."],
+    ["Can you renovate an existing landscape?", "Yes. We inspect what is already healthy and plan improvements around it."],
   ]],
-  ["Care after handover", [
-    ["Do you look after the garden after handover?", "Garden care is available on request. Every project ends with simple care steps, and we stay one call away."],
-    ["Who do I call if something goes wrong?", "The same person who ran your project. One contact, from first visit to handover and after."],
+  ["Maintenance & AMC", [
+    ["Do you maintain the landscape after handover?", "Yes. We offer 6-month and 12-month annual maintenance contracts (AMC)."],
+    ["Can I start an AMC for a landscape you did not build?", "Yes, subject to inspection and terms. We first assess the condition of your plants and irrigation."],
+    ["Who do I contact if an irrigation line needs repair?", "Call or WhatsApp us. Under our AMC, we respond within 24 hours."],
   ]],
 ];
 
 export const NAV = {
   who: [
-    { to: "/resorts", label: "Resorts", sub: "Arrival, pool decks, lawns and pathways" },
-    { to: "/commercial", label: "Commercial", sub: "Offices, hotels, schools and apartments" },
-    { to: "/homes", label: "Homes", sub: "Villas, terraces and balconies" },
+    { to: "/resorts", label: "Resorts", sub: "Arrival, pool decks, cottages and event lawns" },
+    { to: "/commercial", label: "Commercial properties", sub: "Offices, IT parks, hotels, schools and apartments" },
+    { to: "/homes", label: "Residential", sub: "Villas, independent houses, terraces and balconies" },
   ],
 };
