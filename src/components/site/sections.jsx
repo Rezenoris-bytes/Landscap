@@ -101,7 +101,7 @@ export const WhoTiles = () => (
     {WHO.map((w, i) => (
       <Reveal key={w.id} delay={i * 0.1}>
         <Link href={`/${w.id}`} data-testid={`who-tile-${w.id}`} className="group relative block aspect-[3/4] overflow-hidden rounded-[28px] bg-forest">
-          <img src={w.img} alt={`${w.name} landscaping by Blue Heaven`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" loading="lazy" />
+          <img src={w.img} alt={`${w.name} landscaping by Blue Heaven`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/20 to-transparent" />
           <span className="absolute left-6 top-6 font-mono text-xs text-white/70">0{i + 1}</span>
           <span className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-full border border-lime/70 text-lime transition-all duration-500 group-hover:rotate-45 group-hover:bg-lime group-hover:text-forest">
@@ -234,7 +234,7 @@ export const PromiseBand = ({ body }) => (
 export const ProjectCard = ({ p, i, big }) => (
   <Reveal delay={(i % 3) * 0.08} className={cn(big && "md:col-span-2 md:row-span-2")}>
     <article data-testid={`project-card-${i}`} className="group relative h-full overflow-hidden rounded-[28px] bg-forest">
-      <img src={p.img} alt={`${p.label} landscape`} className={cn("w-full object-cover transition-transform duration-[1.2s] group-hover:scale-105", big ? "aspect-[4/3] md:aspect-auto md:h-full" : "aspect-[4/3]")} loading="lazy" />
+      <img src={p.img} alt={`${p.label} landscape`} className={cn("w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105", big ? "aspect-[4/3] md:aspect-auto md:h-full" : "aspect-[4/3]")} loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest/95 via-forest/10 to-transparent" />
       <span className="absolute left-5 top-5 rounded-full bg-lime px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-forest">{p.label}</span>
       <div className="absolute inset-x-5 bottom-5 text-white">
