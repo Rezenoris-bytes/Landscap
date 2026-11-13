@@ -10,3 +10,4 @@ export function generateStaticParams() {
 export default function BlogPostPage() {
   return <BlogClient />;
 }
+

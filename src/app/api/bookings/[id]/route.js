@@ -3,15 +3,15 @@ export const runtime = 'edge';
 import { NextResponse } from "next/server";
 import { updateBookingStatus, deleteBooking, verifyToken } from "@/lib/db";
 
-function checkAuth(request) {
+async function checkAuth(request) {
   const token = request.cookies.get("access_token")?.value || request.headers.get("authorization")?.replace("Bearer ", "");
   if (!token) return false;
-  const payload = verifyToken(token);
+  const payload = await verifyToken(token);
   return payload && payload.role === "admin";
 }
 
 export async function PATCH(request, { params }) {
-  if (!checkAuth(request)) {
+  if (!(await checkAuth(request))) {
     return NextResponse.json({ detail: "Not authorised" }, { status: 401 });
   }
   const { id } = params;
@@ -24,7 +24,7 @@ export async function PATCH(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
-  if (!checkAuth(request)) {
+  if (!(await checkAuth(request))) {
     return NextResponse.json({ detail: "Not authorised" }, { status: 401 });
   }
   const { id } = params;

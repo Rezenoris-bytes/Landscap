@@ -16,7 +16,7 @@ export async function POST(request) {
       return NextResponse.json({ detail: "Wrong email or password" }, { status: 401 });
     }
 
-    const token = createToken(user.id, user.email);
+    const token = await createToken(user.id, user.email);
     const response = NextResponse.json({
       id: user.id,
       email: user.email,

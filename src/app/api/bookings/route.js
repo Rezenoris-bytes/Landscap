@@ -8,7 +8,7 @@ export async function GET(request) {
   if (!token) {
     return NextResponse.json({ detail: "Not authenticated" }, { status: 401 });
   }
-  const payload = verifyToken(token);
+  const payload = await verifyToken(token);
   if (!payload || payload.role !== "admin") {
     return NextResponse.json({ detail: "Not authorised" }, { status: 401 });
   }
