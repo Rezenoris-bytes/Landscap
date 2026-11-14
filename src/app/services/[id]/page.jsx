@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { SERVICES } from "@/data/services";
 import ServiceClient from "./ServiceClient";
 

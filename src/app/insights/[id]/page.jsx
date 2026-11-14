@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import { GUIDES } from "@/data/guides";
 import InsightsClient from "./InsightsClient";
 

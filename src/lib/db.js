@@ -2,20 +2,8 @@ const JWT_SECRET = process.env.JWT_SECRET || "d9830fc353a5b1b49c4f10c77e4e9d20ac
 export const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || "admin@blueheavenlandscape.com").toLowerCase();
 export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "BHLadmin@2026";
 
-// ---------- Cloudflare D1 Helper ----------
-async function getD1Database() {
-  try {
-    const { getRequestContext } = await import("@cloudflare/next-on-pages");
-    const ctx = getRequestContext();
-    if (ctx && ctx.env && ctx.env.DB) {
-      return ctx.env.DB;
-    }
-  } catch {}
-  return null;
-}
-
-// ---------- In-Memory Fallback Store (Local Dev & Edge) ----------
-const memStore = {
+// ---------- In-Memory Store (Zero-Config for Vercel & Local Dev) ----------
+const store = {
   users: [
     {
       id: "admin-1",
@@ -30,7 +18,7 @@ const memStore = {
     {
       id: "demo-booking-1",
       space: "resort",
-      services: JSON.stringify(["complete-landscape", "smart-irrigation"]),
+      services: ["lawn", "irrigation"],
       city: "Coimbatore",
       timeline: "Within 1 month",
       name: "Sample Enquiry",
@@ -46,7 +34,7 @@ const memStore = {
   projects: [],
 };
 
-// ---------- Edge-Native Web Crypto Helpers ----------
+// ---------- Standard Web Crypto Helpers ----------
 function base64UrlEncode(bytesOrStr) {
   const bytes = typeof bytesOrStr === "string" ? new TextEncoder().encode(bytesOrStr) : new Uint8Array(bytesOrStr);
   let binary = "";
@@ -77,7 +65,7 @@ async function getHmacKey(secret) {
   );
 }
 
-// ---------- Password Hashing (Edge-Native) ----------
+// ---------- Password Hashing ----------
 export async function hashPassword(password) {
   const enc = new TextEncoder().encode(password + ":" + JWT_SECRET);
   const digest = await crypto.subtle.digest("SHA-256", enc);
@@ -90,7 +78,7 @@ export async function verifyPassword(password, storedHash) {
   return hash === storedHash;
 }
 
-// ---------- Auth Tokens (Edge-Native JWT) ----------
+// ---------- Auth Tokens (Edge & Node Compatible JWT) ----------
 export async function createToken(userId, email) {
   const header = { alg: "HS256", typ: "JWT" };
   const now = Math.floor(Date.now() / 1000);
@@ -143,22 +131,7 @@ export async function verifyToken(token) {
 
 // ---------- User Operations ----------
 export async function getAdminUser() {
-  const d1 = await getD1Database();
-  if (d1) {
-    let row = await d1.prepare("SELECT * FROM users WHERE email = ?").bind(ADMIN_EMAIL).first();
-    if (!row) {
-      const hash = await hashPassword(ADMIN_PASSWORD);
-      const id = "admin-1";
-      const now = new Date().toISOString();
-      await d1.prepare(
-        "INSERT INTO users (id, email, password_hash, name, role, created_at) VALUES (?, ?, ?, ?, ?, ?)"
-      ).bind(id, ADMIN_EMAIL, hash, "Admin", "admin", now).run();
-      return { id, email: ADMIN_EMAIL, name: "Admin", role: "admin" };
-    }
-    return row;
-  }
-
-  let user = memStore.users.find((u) => u.email.toLowerCase() === ADMIN_EMAIL);
+  let user = store.users.find((u) => u.email.toLowerCase() === ADMIN_EMAIL);
   if (!user) {
     user = {
       id: "admin-1",
@@ -168,23 +141,14 @@ export async function getAdminUser() {
       role: "admin",
       created_at: new Date().toISOString(),
     };
-    memStore.users.push(user);
+    store.users.push(user);
   }
   return user;
 }
 
 export async function verifyAdminLogin(email, password) {
   const normalizedEmail = (email || "").toLowerCase().trim();
-  const d1 = await getD1Database();
-  if (d1) {
-    const user = await d1.prepare("SELECT * FROM users WHERE email = ?").bind(normalizedEmail).first();
-    if (user && (await verifyPassword(password, user.password_hash))) {
-      return { id: user.id, email: user.email, name: user.name, role: user.role };
-    }
-    return null;
-  }
-
-  const user = memStore.users.find((u) => u.email.toLowerCase() === normalizedEmail);
+  const user = store.users.find((u) => u.email.toLowerCase() === normalizedEmail);
   if (user && (await verifyPassword(password, user.password_hash))) {
     return { id: user.id, email: user.email, name: user.name || "Admin", role: "admin" };
   }
@@ -193,16 +157,7 @@ export async function verifyAdminLogin(email, password) {
 
 // ---------- Bookings Operations ----------
 export async function getBookings() {
-  const d1 = await getD1Database();
-  if (d1) {
-    const { results } = await d1.prepare("SELECT * FROM bookings ORDER BY created_at DESC").all();
-    return (results || []).map((b) => ({
-      ...b,
-      services: typeof b.services === "string" ? JSON.parse(b.services || "[]") : b.services,
-    }));
-  }
-
-  return (memStore.bookings || []).map((b) => ({
+  return (store.bookings || []).map((b) => ({
     ...b,
     services: typeof b.services === "string" ? JSON.parse(b.services || "[]") : b.services,
   }));
@@ -211,31 +166,6 @@ export async function getBookings() {
 export async function createBooking(bookingData) {
   const id = "b_" + Date.now();
   const now = new Date().toISOString();
-  const servicesJson = JSON.stringify(bookingData.services || []);
-
-  const d1 = await getD1Database();
-  if (d1) {
-    await d1.prepare(`
-      INSERT INTO bookings (id, space, services, city, timeline, name, phone, email, note, date, time, status, created_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new', ?)
-    `).bind(
-      id,
-      bookingData.space || "",
-      servicesJson,
-      bookingData.city || "",
-      bookingData.timeline || "",
-      bookingData.name || "",
-      bookingData.phone || "",
-      bookingData.email || "",
-      bookingData.note || "",
-      bookingData.date || "",
-      bookingData.time || "",
-      now
-    ).run();
-
-    return { ...bookingData, id, status: "new", created_at: now };
-  }
-
   const newBooking = {
     ...bookingData,
     id,
@@ -243,23 +173,13 @@ export async function createBooking(bookingData) {
     status: "new",
     created_at: now,
   };
-  memStore.bookings = memStore.bookings || [];
-  memStore.bookings.unshift(newBooking);
+  store.bookings = store.bookings || [];
+  store.bookings.unshift(newBooking);
   return newBooking;
 }
 
 export async function updateBookingStatus(id, status) {
-  const d1 = await getD1Database();
-  if (d1) {
-    await d1.prepare("UPDATE bookings SET status = ? WHERE id = ?").bind(status, id).run();
-    const updated = await d1.prepare("SELECT * FROM bookings WHERE id = ?").bind(id).first();
-    if (updated) {
-      updated.services = typeof updated.services === "string" ? JSON.parse(updated.services || "[]") : updated.services;
-    }
-    return updated;
-  }
-
-  const b = (memStore.bookings || []).find((item) => item.id === id);
+  const b = (store.bookings || []).find((item) => item.id === id);
   if (b) {
     b.status = status;
     return b;
@@ -268,70 +188,31 @@ export async function updateBookingStatus(id, status) {
 }
 
 export async function deleteBooking(id) {
-  const d1 = await getD1Database();
-  if (d1) {
-    await d1.prepare("DELETE FROM bookings WHERE id = ?").bind(id).run();
-    return true;
-  }
-
-  memStore.bookings = (memStore.bookings || []).filter((item) => item.id !== id);
+  store.bookings = (store.bookings || []).filter((item) => item.id !== id);
   return true;
 }
 
 // ---------- Projects Operations ----------
 export async function getProjects() {
-  const d1 = await getD1Database();
-  if (d1) {
-    const { results } = await d1.prepare("SELECT * FROM projects WHERE is_deleted = 0 ORDER BY created_at DESC").all();
-    return results || [];
-  }
-
-  return (memStore.projects || []).filter((p) => !p.is_deleted);
+  return (store.projects || []).filter((p) => !p.is_deleted);
 }
 
 export async function createProject(projectData) {
   const id = "p_" + Date.now();
   const now = new Date().toISOString();
-
-  const d1 = await getD1Database();
-  if (d1) {
-    await d1.prepare(`
-      INSERT INTO projects (id, title, place, type, service, summary, before_path, after_path, is_deleted, created_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?)
-    `).bind(
-      id,
-      projectData.title || "",
-      projectData.place || "",
-      projectData.type || "",
-      projectData.service || "",
-      projectData.summary || "",
-      projectData.before_path || "",
-      projectData.after_path || "",
-      now
-    ).run();
-
-    return { ...projectData, id, is_deleted: false, created_at: now };
-  }
-
   const newProject = {
     ...projectData,
     id,
     is_deleted: false,
     created_at: now,
   };
-  memStore.projects = memStore.projects || [];
-  memStore.projects.unshift(newProject);
+  store.projects = store.projects || [];
+  store.projects.unshift(newProject);
   return newProject;
 }
 
 export async function deleteProject(id) {
-  const d1 = await getD1Database();
-  if (d1) {
-    await d1.prepare("UPDATE projects SET is_deleted = 1 WHERE id = ?").bind(id).run();
-    return true;
-  }
-
-  const p = (memStore.projects || []).find((item) => item.id === id);
+  const p = (store.projects || []).find((item) => item.id === id);
   if (p) {
     p.is_deleted = true;
   }
