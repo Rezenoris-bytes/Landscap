@@ -20,7 +20,7 @@ const Zones = ({ s }) => (
         {s.zones.map(([t, d, img], i) => (
           <Reveal key={t} delay={(i % 3) * 0.08} className={cn(s.zones.length % 3 === 1 && (i === 0 || i === s.zones.length - 1) && "lg:col-span-2", s.zones.length % 3 === 2 && i === 0 && "lg:col-span-2")}>
             <article className="group relative h-full overflow-hidden rounded-[28px] bg-mist" data-testid={`zone-${i}`}>
-              <div className="overflow-hidden"><img src={img} alt={t} className="h-60 w-full object-cover transition-transform duration-[1200ms] group-hover:scale-110 lg:h-64" loading="lazy" /></div>
+              <div className="overflow-hidden"><img src={img} alt={t} className="h-60 w-full object-cover transition-transform duration-1000 group-hover:scale-110 lg:h-64" loading="lazy" /></div>
               <div className="p-6">
                 <span className="font-mono text-xs text-forest/40">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-2 font-display text-xl font-medium text-forest">{t}</h3>

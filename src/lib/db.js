@@ -1,3 +1,15 @@
+import { timingSafeEqual } from "./security";
+
+const isProd = process.env.NODE_ENV === "production";
+if (isProd) {
+  if (!process.env.JWT_SECRET) {
+    console.warn("⚠️ [SECURITY WARNING] process.env.JWT_SECRET is not configured in production! Using fallback secret.");
+  }
+  if (!process.env.ADMIN_PASSWORD) {
+    console.warn("⚠️ [SECURITY WARNING] process.env.ADMIN_PASSWORD is using the default value in production. Set a custom password in Vercel.");
+  }
+}
+
 const JWT_SECRET = process.env.JWT_SECRET || "d9830fc353a5b1b49c4f10c77e4e9d20acf7ff86ec06caf390926ba2d4588c2e";
 export const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || "admin@blueheavenlandscape.com").toLowerCase();
 export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "BHLadmin@2026";
@@ -8,7 +20,7 @@ const store = {
     {
       id: "admin-1",
       email: ADMIN_EMAIL,
-      password_hash: "admin",
+      password_hash: "",
       name: "Admin",
       role: "admin",
       created_at: new Date().toISOString(),
@@ -73,9 +85,9 @@ export async function hashPassword(password) {
 }
 
 export async function verifyPassword(password, storedHash) {
-  if (password === ADMIN_PASSWORD) return true;
+  if (!password || !storedHash) return false;
   const hash = await hashPassword(password);
-  return hash === storedHash;
+  return await timingSafeEqual(hash, storedHash);
 }
 
 // ---------- Auth Tokens (Edge & Node Compatible JWT) ----------
@@ -131,26 +143,38 @@ export async function verifyToken(token) {
 
 // ---------- User Operations ----------
 export async function getAdminUser() {
+  const currentHash = await hashPassword(ADMIN_PASSWORD);
   let user = store.users.find((u) => u.email.toLowerCase() === ADMIN_EMAIL);
   if (!user) {
     user = {
       id: "admin-1",
       email: ADMIN_EMAIL,
-      password_hash: await hashPassword(ADMIN_PASSWORD),
+      password_hash: currentHash,
       name: "Admin",
       role: "admin",
       created_at: new Date().toISOString(),
     };
     store.users.push(user);
+  } else {
+    // Keep credentials synchronized with environment variables
+    user.password_hash = currentHash;
+    user.email = ADMIN_EMAIL;
   }
   return user;
 }
 
 export async function verifyAdminLogin(email, password) {
   const normalizedEmail = (email || "").toLowerCase().trim();
-  const user = store.users.find((u) => u.email.toLowerCase() === normalizedEmail);
-  if (user && (await verifyPassword(password, user.password_hash))) {
-    return { id: user.id, email: user.email, name: user.name || "Admin", role: "admin" };
+  const admin = await getAdminUser();
+  
+  // Timing-safe comparison for email address
+  const isEmailValid = await timingSafeEqual(normalizedEmail, admin.email.toLowerCase());
+  // Always compute password hash to prevent timing attacks that reveal valid email addresses
+  const inputHash = await hashPassword(password || "");
+  const isPasswordValid = await timingSafeEqual(inputHash, admin.password_hash);
+
+  if (isEmailValid && isPasswordValid) {
+    return { id: admin.id, email: admin.email, name: admin.name || "Admin", role: "admin" };
   }
   return null;
 }
