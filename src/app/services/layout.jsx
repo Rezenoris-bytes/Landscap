@@ -15,3 +15,4 @@ export const metadata = {
 export default function ServicesLayout({ children }) {
   return children;
 }
+

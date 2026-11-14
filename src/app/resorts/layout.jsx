@@ -15,3 +15,4 @@ export const metadata = {
 export default function ResortsLayout({ children }) {
   return children;
 }
+

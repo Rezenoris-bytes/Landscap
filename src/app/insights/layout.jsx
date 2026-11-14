@@ -15,3 +15,4 @@ export const metadata = {
 export default function InsightsLayout({ children }) {
   return children;
 }
+

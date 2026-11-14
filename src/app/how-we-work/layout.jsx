@@ -15,3 +15,4 @@ export const metadata = {
 export default function HowWeWorkLayout({ children }) {
   return children;
 }
+

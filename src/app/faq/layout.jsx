@@ -15,3 +15,4 @@ export const metadata = {
 export default function FaqLayout({ children }) {
   return children;
 }
+
