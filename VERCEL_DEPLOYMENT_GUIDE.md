@@ -41,3 +41,4 @@ Vercel is the creator and native platform for Next.js. Deploying this project to
 - **Automatic HTTPS/SSL**: Free SSL certificates renewed automatically.
 - **Automatic CI/CD**: Every `git push origin main` triggers a fresh deployment automatically.
 - **Custom Domain**: Connect your domain (e.g. `blueheavenlandscape.com`) with one click in Project Settings > Domains.
+
